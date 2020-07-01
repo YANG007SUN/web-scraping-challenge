@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Journey to Mars</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/style.css" type="text/css">
 </head>
 
 <body>
@@ -31,25 +31,19 @@
         <div class="row mars-info">
             <div class="col-md-8">
                 <h2 class="heading"><strong>Featured Mars Image</strong></h2>
-                <a target="_blank"  href = "http://127.0.0.1:5000/images">
-                    <img class = "img" src="{{mars["featured_image"]}}", alt = "Featured Mars Image" width="720" height="450">
+                <a target="_blank"  href = "/images">
+                    <img class = "img" src="{{mars["featured_image"]}}" alt = "Featured Mars Image" width="720" height="450">
                 </a>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Current Weather on Mars</h4>
+                    <div>
+                      <h4>Current Weather on Mars</h4>
                       <p class="card-text">{{mars["mars_weather"]}}</p>
                     </div>
                 </div>
                 <br>
                 <h2 class="heading"><strong>Mars Fact</strong></h2>
-                <style>
-                    table {text-align: center;
-                           font-size: small;}
-                    table thead th {text-align: center;
-                                    font-size:large;}
-                </style>
                 <div>{{mars["fact_table"]|safe}}</div>
             </div>
         </div>
