@@ -19,7 +19,7 @@
         </div>
 
         <!-- content -->
-        <div class="row mars-info">
+        <div class="row">
             <div class="col-md-12">
                 <h2 class="heading"><strong>Latest News</strong></h2>
                 <h4 class="sub-heading">{{ mars['news_title'] }}</h4>
@@ -28,25 +28,26 @@
             </div>
         </div>
         <br>
-        <div class="row mars-info">
-            <div class="col-md-8">
-                <h2 class="heading"><strong>Featured Mars Image</strong></h2>
-                <a target="_blank"  href = "/images">
-                    <img class = "img" src="{{mars["featured_image"]}}" alt = "Featured Mars Image" width="720" height="450">
-                </a>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div>
-                      <h4>Current Weather on Mars</h4>
-                      <p class="card-text">{{mars["mars_weather"]}}</p>
-                    </div>
+
+            <div class="row mars_content">
+                <div class="col-md-8">
+                    <h2 class="heading"><strong>Featured Mars Image</strong></h2>
+                    <a target="_blank"  href = "/images">
+                        <img class = "img" src="{{mars["featured_image"]}}" alt = "Featured Mars Image" width="720" height="450">
+                    </a>
                 </div>
-                <br>
-                <h2 class="heading"><strong>Mars Fact</strong></h2>
-                <div>{{mars["fact_table"]|safe}}</div>
+                <div class="col-md-4"><br><br>
+                    <div class="card weather">
+                        <div class="card-body">
+                        <h4>Current Weather on Mars</h4>
+                        <p class="card-text"><small>{{mars["mars_weather"]}}</small></p>
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="heading"><strong>Mars Fact</strong></h2>
+                    <div>{{mars["fact_table"]|safe}}</div>
+                </div>
             </div>
-        </div>
 
     </div>
 </body>

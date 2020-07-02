@@ -12,6 +12,7 @@ h1 {
     text-align: center;
 }
 
+
 .image_container{
     margin-left: 70px;
 }
@@ -25,4 +26,19 @@ h1 {
 
 .card-title{
     text-align: center;
+}
+
+.card-text{
+    text-align: left;
+}
+
+
+
+
+@media (max-width: 1200px){
+    .mars_content{
+        flex-direction: column;
+
+    }
+
 }
