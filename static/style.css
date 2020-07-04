@@ -35,7 +35,7 @@ h1 {
 
 
 
-@media (max-width: 1200px){
+@media (max-width: 990px){
     .mars_content{
         flex-direction: column;
 
