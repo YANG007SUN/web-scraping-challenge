@@ -10,3 +10,5 @@ splinter
 bs4
 pandas
 dnspython
+html5lib
+
