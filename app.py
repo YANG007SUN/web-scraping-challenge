@@ -12,7 +12,6 @@ conn = f"mongodb+srv://{username}:{password}@cluster0.s7ibi.mongodb.net/mars_db?
 client = pymongo.MongoClient(conn)
 db = client.mars_db
 
-
 @app.route("/")
 def home():
     mars_data = db.mars.find_one()
