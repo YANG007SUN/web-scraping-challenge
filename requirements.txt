@@ -9,3 +9,4 @@ flask_pymongo
 splinter
 bs4
 pandas
+dnspython
