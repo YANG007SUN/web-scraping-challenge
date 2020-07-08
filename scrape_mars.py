@@ -11,9 +11,7 @@ import os
 def init_browser():
     """open a chrome browser
     """
-    # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
 
-    # return Browser('chrome', **executable_path, headless=True)
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
