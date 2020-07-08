@@ -4,14 +4,22 @@ import pandas as pd
 from splinter import Browser
 from splinter.exceptions import ElementDoesNotExist
 import time
+from selenium import webdriver
+import os
 
 # initialize a browser
 def init_browser():
     """open a chrome browser
     """
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
 
-    return Browser('chrome', **executable_path, headless=True)
+    # return Browser('chrome', **executable_path, headless=True)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    return webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 # scrape data
 def scrape():
@@ -27,10 +35,10 @@ def scrape():
     #=================================== scrape latest news =================================
     # open default browser
     browser = init_browser()
-    browser.visit(news_url)
+    browser.get(news_url)
     time.sleep(1.5)
     # create soup object
-    html = browser.html
+    html = browser.page_source
     soup = bs(html, "html5lib")
     
     # -------------------------
@@ -38,10 +46,10 @@ def scrape():
     news_p = soup.find("ul","item_list").find_all("div","article_teaser_body")[0].text
 
     #================================== scrape images =======================================
-    browser.visit(image_url)
+    browser.get(image_url)
     time.sleep(1)
     # create soup object
-    html = browser.html
+    html = browser.page_source
     soup = bs(html, "html5lib")
     
     # -------------------------
@@ -54,10 +62,10 @@ def scrape():
         print("error in scraping featured image")
 
     #================================== scrape temperature ==================================
-    browser.visit(weather_url)
+    browser.get(weather_url)
     time.sleep(1.5)
     # create soup object
-    html = browser.html
+    html = browser.page_source
     soup = bs(html, "html5lib")
     
     # -------------------------
@@ -79,11 +87,11 @@ def scrape():
     fact_table_html = fact_table.to_html(index = False)
 
     #================================== scrape Mars Hemispheres ==============================
-    browser.visit(hemisphere_urls)
+    browser.get(hemisphere_urls)
     time.sleep(1)
 
     # scrape soup object
-    html = browser.html
+    html = browser.page_source
     soup = bs(html, "html5lib")
     
     # -------------------------
