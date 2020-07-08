@@ -107,7 +107,7 @@ def scrape():
             browser.links.find_by_partial_text(title.h3.text).click()
 
             # scrape image url
-            new_html = browser.html
+            new_html = browser.page_source
             new_soup = bs(new_html, "html5lib")
             # try to get image url
             try:
