@@ -64,7 +64,7 @@ def scrape():
 
     #================================== scrape temperature ==================================
     browser.get(weather_url)
-    time.sleep(1.5)
+    time.sleep(3)
     # create soup object
     html = browser.page_source
     soup = bs(html, "html5lib")
@@ -136,7 +136,7 @@ def scrape():
         summary_dict = dict(news_title = news_title,
                             news_p = news_p,
                             featured_image = featured_image,
-                            # mars_weather =mars_weather[0],
+                            mars_weather =mars_weather[0],
                             fact_table = fact_table_html,
                             hemisphere_image_urls = hemisphere_image_urls)
 
