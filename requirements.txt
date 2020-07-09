@@ -12,4 +12,5 @@ pandas
 dnspython
 html5lib
 selenium
+lxml
 
