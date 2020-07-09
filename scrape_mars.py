@@ -70,17 +70,22 @@ def scrape():
     soup = bs(html, "html5lib")
     
     # -------------------------
-    twitters = soup.find_all("div","css-1dbjc4n")
-    mars_weather = []
+    twitters = soup.find_all("span","css-901oao")
     for twit in twitters:
-        try:
-            if twit.span:
-                tweet = twit.find("span","css-901oao").text
-                if tweet[0:11] == "InSight sol" and (tweet not in mars_weather) :
-                    mars_weather.append(tweet)
-                    break
-        except:
-            None
+        if twit.text[0:11]=="InSight Sol":
+            mars_weather = twit.text
+            break
+    
+    # mars_weather = []
+    # for twit in twitters:
+    #     try:
+    #         if twit.span:
+    #             tweet = twit.find("span","css-901oao").text
+    #             if tweet[0:11] == "InSight sol" and (tweet not in mars_weather) :
+    #                 mars_weather.append(tweet)
+    #                 break
+    #     except:
+    #         None
     
     #================================== scrape fact table =================================
     fact_table = pd.read_html(fact_url)[0]
