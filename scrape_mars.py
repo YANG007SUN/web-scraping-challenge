@@ -72,7 +72,7 @@ def scrape():
     # -------------------------
     twitters = soup.find_all("span","css-901oao")
     for twit in twitters:
-        if twit.text[0:11]=="InSight Sol":
+        if twit.text[0:11]=="InSight sol":
             mars_weather = twit.text
             break
     
