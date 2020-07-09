@@ -4,7 +4,6 @@ import pymongo
 from config import username, password
 import scrape_mars
 
-
 app = Flask(__name__)
 
 # set up mongo connection and define document
