@@ -1,17 +1,19 @@
 # web-scraping-challenge
 
 ## Objective
-#### Creating Flask API to scrape NASA Mars newest Project data, and then display the content into a webpage. 
+#### Deploy a Flask API, which scrape NASA Mars newest Project data,  on heroku.
+#### You can find the webpage at: https://shrouded-harbor-91603.herokuapp.com/
 
 ## Library:
 * Flask
 * PyMongo
 * pymongo
 * BeautifulSoup
-* Splinter
+* selenium
 * re
 * Pandas
 * time
+
 
 ## Scraping Data Source
 * https://mars.nasa.gov/news/
